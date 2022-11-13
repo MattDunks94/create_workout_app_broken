@@ -11,7 +11,7 @@ class WorkoutList(generic.ListView):
 
 
 class ExerciseList(generic.ListView):
-
+    
     model = Exercise
     template_name = 'exercise_list.html'
 
@@ -37,6 +37,4 @@ class CreateExercise(generic.CreateView):
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
-        workout = Workout.slug
         return super().form_valid(form)
-        form.save(workout)
