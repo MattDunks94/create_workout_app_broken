@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-center py-3">Workout List</h1>
+
+{% for workout in object_list %}
+
+    <h2>{{ workout.title }}</h2>
+    <ul>
+        <li>{{ workout.published_by }}</li>
+        <li>{{ workout.created_on }}</li>
+    </ul>
+    
+{% endfor %}
+
+{% endblock %}
