@@ -23,6 +23,7 @@
                     <li>Reps: {{ exercise.reps }}</li>
                     <li>Weight: {{ exercise.weight }} kg</li>
                     <li>Workout: {{ exercise.workout }}</li>
+                    <li>Created by: {{ exercise.created_by }}</li>
                 </ul>
                 {% if user == exercise.created_by %}
                 <a href="#" class="btn btn-primary">Edit Exercise</a>
