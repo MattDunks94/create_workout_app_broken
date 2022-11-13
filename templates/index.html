@@ -7,13 +7,12 @@
 <div class="row">
     {% for exercise in exercise_list %}
     <div class="col-sm-4 py-3">
-        <div class="card m-auto" style="width: 18rem;">
+        <div class="card m-auto" style="width: 20rem;">
             {% if "placeholder" in exercise.workout.featured_image.url %}
             <img src="https://res.cloudinary.com/die65ihvc/image/upload/v1667139010/PROJECT-4/featured-placeholder_psw6rc.jpg"
                 class="card-img-top" alt="placeholder">
             {% else %}
-            <img src="{{ exercise.workout.featured_image }}"
-                class="card-img-top" alt="placeholder">
+            <img src="{{ exercise.workout.featured_image }}" class="card-img-top" alt="placeholder">
             {% endif %}
             <div class="card-body">
                 <h5 class="card-title text-center">{{ exercise.exercise }}</h5>
@@ -23,13 +22,17 @@
                     <li>Weight: {{ exercise.weight }} kg</li>
                     <li>Workout: {{ exercise.workout }}</li>
                 </ul>
+                {% if user == exercise.created_by %}
                 <a href="#" class="btn btn-primary">Edit Exercise</a>
+                {% else %}
+                <a href="#" class="btn btn-primary disabled">Edit Exercise</a>
+                {% endif %}
+
             </div>
         </div>
     </div>
     {% endfor %}
 </div>
-
 
 
 {% endblock %}
