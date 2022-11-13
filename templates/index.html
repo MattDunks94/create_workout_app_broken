@@ -4,15 +4,32 @@
 
 <h1 class="text-center py-3">Workout List</h1>
 
-{% for workout in object_list %}
+<div class="row">
+    {% for exercise in object_list %}
+    <div class="col-sm-4 py-3 border">
+        <div class="card m-auto" style="width: 18rem;">
+            {% if "placeholder" in workout.featured_image.url %}
+            <img src="https://res.cloudinary.com/die65ihvc/image/upload/v1667139010/PROJECT-4/featured-placeholder_psw6rc.jpg"
+                class="card-img-top" alt="placeholder">
+            {% else %}
+            <img src="{{ workout.featured_image }}"
+                class="card-img-top" alt="placeholder">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ exercise.exercise }}</h5>
+                <ul>
+                    <li>Sets: {{ exercise.sets }}</li>
+                    <li>Reps: {{ exercise.reps }}</li>
+                    <li>Weight: {{ exercise.weight }} kg</li>
+                    <li>Workout: {{ exercise.workout }}</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Edit Exercise</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
-    <h2>{{ workout.title }}</h2>
-    <ul>
-        <li>{{ workout.published_by }}</li>
-        <li>{{ workout.created_on }}</li>
-        <li>{{ workout.workout|length }}</li>
-    </ul>
-    
-{% endfor %}
+
 
 {% endblock %}
