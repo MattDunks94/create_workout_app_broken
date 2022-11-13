@@ -36,7 +36,7 @@ class Exercise(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['workout']
+        ordering = ['created_on']
 
     def __str__(self):
         return self.exercise
