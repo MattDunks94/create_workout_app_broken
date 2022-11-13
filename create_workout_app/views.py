@@ -6,7 +6,7 @@ from django.views import generic
 
 class WorkoutList(generic.ListView):
 
-    model = Workout
+    model = Exercise
     template_name = 'index.html'
 
 
