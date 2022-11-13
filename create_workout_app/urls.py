@@ -1,9 +1,10 @@
 from . import views
 from django.urls import path
+from django.contrib.auth.decorators import login_required
 
 
 urlpatterns = [
-    path('', views.WorkoutList.as_view(), name='home'),
+    path('', login_required(views.WorkoutList.as_view()), name='home'),
     path('exercise_list/', views.ExerciseList.as_view(), name='exercise_list'),
     path(
         'create_workout/', views.CreateWorkout.as_view(), name='create_workout'
