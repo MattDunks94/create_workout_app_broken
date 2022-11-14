@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ exercise.exercise }}</h1>
+
+<ul>
+    <li>{{ exercise.sets }}</li>
+    <li>{{ exercise.reps }}</li>
+    <li>{{ exercise.weight }}</li>
+    <li>{{ exercise.created_on }}</li>
+    <li>{{ exercise.workout }}</li>
+</ul>
+
+<a href="{% url 'update_exercise' exercise.id %}"><button>Edit</button></a>
+
+{% endblock %}
