@@ -23,7 +23,7 @@
     <script src="https://kit.fontawesome.com/d6240d979c.js" crossorigin="anonymous"></script>
     <!-- static stylesheet -->
     <link rel="stylesheet" href="../static/css/style.css">
-    <title>Workout Tracker</title>
+    <title>Workout Creator</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
         <a class="navbar-brand" href="{% url 'home' %}">
             <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30"
                 class="d-inline-block align-top" alt="">
-            Workout Tracker
+            Workout Creator
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,6 +47,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Create
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{% url 'create_workout' %}">Workout Category</a>
+                      <a class="dropdown-item" href="{% url 'create_exercise' %}">Exercise</a>
+                    </div>
+                  </li>
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
