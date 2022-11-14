@@ -38,3 +38,17 @@ class CreateExercise(generic.CreateView):
     def form_valid(self, form):
         form.instance.created_by = self.request.user
         return super().form_valid(form)
+
+    
+class ExerciseDetail(generic.DetailView):
+
+    model = Exercise
+    template_name = 'exercise_detail.html'
+
+
+class ExerciseUpdate(generic.UpdateView):
+
+    model = Exercise
+    fields = ['exercise', 'sets', 'reps', 'weight', 'workout']
+    template_name = 'edit_exercise.html'
+    success_url = ('home')
