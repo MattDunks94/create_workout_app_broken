@@ -12,6 +12,11 @@
     <li>{{ exercise.workout }}</li>
 </ul>
 
-<a href="{% url 'update_exercise' exercise.id %}"><button>Edit</button></a>
+<a href="{% url 'update_exercise' exercise.id %}">
+    <button>Edit</button>
+</a>
+<a href="{% url 'delete_exercise' exercise.id %}">
+    <button class="btn btn-danger">Delete Exercise</button>
+</a>
 
 {% endblock %}
