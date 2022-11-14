@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-center py-3">Delete Exercise</h1>
+
+<div class="row">
+    <div class="col-md-6 m-auto py-3">
+        <form method="POST">
+            {% csrf_token %}
+            <p>Are you sure you want to delete the following exercise?<br>
+                <strong>{{ exercise }}</strong>
+            </p>
+            <button class="btn btn-primary" type="submit">Confirm</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
