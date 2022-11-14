@@ -63,7 +63,11 @@ class WorkoutUpdate(generic.UpdateView):
     success_url = reverse_lazy('home')
 
     
+class DeleteExercise(generic.DeleteView):
 
+    model = Exercise
+    template_name = 'delete_exercise.html'
+    success_url = reverse_lazy('home')
 
 
 
