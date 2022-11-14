@@ -5,27 +5,29 @@
 <h1 class="text-center py-3">Exercise</h1>
 
 <div class="row">
-    <div class="col-md-4 m-auto">
-        <div class="card" style="width: 18rem;">
-            {% if "placeholder" in exercise.workout.featured_image.url %}
-            <img src="https://res.cloudinary.com/die65ihvc/image/upload/v1667139010/PROJECT-4/featured-placeholder_psw6rc.jpg" class="card-img-top" alt="...">
-            {% else %}
-            <img src="{{ exercise.workout.featured_image }}" class="card-img-top" alt="...">
-            {% endif %}
+    <div class="col-md-6 m-auto">
+        {% if "placeholder" in exercise.workout.featured_image.url %}
+        <img src="https://res.cloudinary.com/die65ihvc/image/upload/v1667139010/PROJECT-4/featured-placeholder_psw6rc.jpg"
+            class="card-img-top" alt="placeholder">
+        {% else %}
+        <img src="{{ exercise.workout.featured_image }}" class="card-img-top" id="exercise-img" alt="featured_image">
+        {% endif %}
+        <div class="card">
             <div class="card-body">
-                <h5 class="card-title">{{ exercise }}</h5>
-                <p class="card-text">{{ exercise.workout }}</p>
+                <h4 class="card-title text-center">{{ exercise }}</h4>
+                <p class="card-text text-center">{{ exercise.workout }}</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Sets: {{ exercise.sets }}</li>
-                <li class="list-group-item">Reps: {{ exercise.reps }}</li>
-                <li class="list-group-item">Weight: {{ exercise.weight }}</li>
+                <li class="list-group-item"><i class="fa fa-sliders" aria-hidden="true"></i> Sets: {{ exercise.sets }}</li>
+                <li class="list-group-item"><i class="fa fa-repeat" aria-hidden="true"></i> Reps: {{ exercise.reps }}</li>
+                <li class="list-group-item"><i class="fa-solid fa-dumbbell"></i> Weight: {{ exercise.weight }} kg</li>
             </ul>
             <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <a href="{% url 'update_exercise' exercise.id %}" class="card-link"><button class="btn btn-primary">Edit</button></a>
+                <a href="{% url 'delete_exercise' exercise.id %}" class="card-link"><button class="btn btn-danger">Delete</button></a>
             </div>
         </div>
+
     </div>
 </div>
 
