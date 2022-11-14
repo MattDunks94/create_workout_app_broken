@@ -12,3 +12,9 @@ class UpdateWorkoutForm(forms.ModelForm):
     class Meta:
         model = Workout
         fields = ['title', 'featured_image']
+
+
+class CreateWorkoutForm(forms.ModelForm):
+    class Meta:
+        model = Workout
+        fields = ['title', 'slug', 'featured_image']
