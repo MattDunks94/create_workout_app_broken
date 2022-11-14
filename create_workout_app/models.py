@@ -34,9 +34,10 @@ class Exercise(models.Model):
         User, on_delete=models.CASCADE, related_name='created_by'
     )
     created_on = models.DateField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now_add=True, null=True)
 
     class Meta:
-        ordering = ['created_on']
+        ordering = ['updated_on']
 
     def __str__(self):
         return self.exercise
