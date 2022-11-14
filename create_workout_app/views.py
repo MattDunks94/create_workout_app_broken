@@ -5,16 +5,10 @@ from django.views import generic
 from .forms import UpdateExerciseForm, UpdateWorkoutForm
 
 
-class WorkoutList(generic.ListView):
+class ExerciseList(generic.ListView):
 
     model = Exercise
     template_name = 'index.html'
-
-
-class ExerciseList(generic.ListView):
-    
-    model = Exercise
-    template_name = 'exercise_list.html'
 
 
 class CreateWorkout(generic.CreateView):
