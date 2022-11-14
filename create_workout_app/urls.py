@@ -13,5 +13,6 @@ urlpatterns = [
         'create_exercise/', views.CreateExercise.as_view(), name='create_exercise'
     ),
     path('<int:pk>/', views.ExerciseDetail.as_view(), name='exercise_detail'),
-    path('<int:pk>/edit/', login_required(views.ExerciseUpdate.as_view()), name='update_exercise'),
+    path('edit/<int:pk>/', views.ExerciseUpdate.as_view(), name='update_exercise'),
+    path('edit_workout/<int:pk>/', views.WorkoutUpdate.as_view(), name='update_workout'),
 ]
