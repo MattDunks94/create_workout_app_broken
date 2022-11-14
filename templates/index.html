@@ -4,7 +4,7 @@
 
 <h1 class="text-center py-3">Workout List</h1>
 
-<span class="ml-5">Logged in as: {{ user }}</span>
+<span class="ml-5">Logged in as: {{ user.username }}</span>
 
 <div class="row">
     {% for exercise in exercise_list %}
@@ -18,19 +18,26 @@
             {% endif %}
             <div class="card-body">
                 <h5 class="card-title text-center">
+                    {% if user == exercise.created_by %}
                     <a href="{% url 'exercise_detail' exercise.id %}">
                         {{ exercise.exercise }}
                     </a>
+                    {% else %}
+                    <h5 class="card-title text-center">
+                        {{ exercise.exercise }}
+                    </h5>
+                    {% endif %}
                 </h5>
                 <ul>
-                    <li>Category: {{ exercise.workout }}</li>
+                    <li>Workout Group: {{ exercise.workout }}</li>
                     <li>Created by: {{ exercise.created_by }}</li>
-                    <li>Created on: {{ exercise.created_on }}</li>
                 </ul>
                 {% if user == exercise.created_by %}
-                <a href="#" class="btn btn-primary">Edit Exercise</a>
+                <a href="{% url 'update_exercise' exercise.id %}" class="btn btn-primary">Edit Exercise</a>
+                <a href="{%  url 'update_workout' exercise.workout.id%}" class="btn btn-primary">Edit Workout</a>
                 {% else %}
                 <a href="#" class="btn btn-primary disabled">Edit Exercise</a>
+                <a href="#" class="btn btn-primary disabled">Edit Workout</a>
                 {% endif %}
 
             </div>
