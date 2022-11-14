@@ -1,12 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="text-center py-3">Create Workout</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Add Exercise">
-</form>
+{% load crispy_forms_tags %}
+<h1 class="text-center py-3">Create Exercise</h1>
+
+<div class="row">
+    <div class="col-sm-3 m-auto">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <button class="btn btn-primary" type="submit">Add Exercise <i class="fa fa-plus" aria-hidden="true"></i></button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
