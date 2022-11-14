@@ -2,21 +2,31 @@
 
 {% block content %}
 
-<h1>{{ exercise.exercise }}</h1>
+<h1 class="text-center py-3">Exercise</h1>
 
-<ul>
-    <li>{{ exercise.sets }}</li>
-    <li>{{ exercise.reps }}</li>
-    <li>{{ exercise.weight }}</li>
-    <li>{{ exercise.created_on }}</li>
-    <li>{{ exercise.workout }}</li>
-</ul>
-
-<a href="{% url 'update_exercise' exercise.id %}">
-    <button>Edit</button>
-</a>
-<a href="{% url 'delete_exercise' exercise.id %}">
-    <button class="btn btn-danger">Delete Exercise</button>
-</a>
+<div class="row">
+    <div class="col-md-4 m-auto">
+        <div class="card" style="width: 18rem;">
+            {% if "placeholder" in exercise.workout.featured_image.url %}
+            <img src="https://res.cloudinary.com/die65ihvc/image/upload/v1667139010/PROJECT-4/featured-placeholder_psw6rc.jpg" class="card-img-top" alt="...">
+            {% else %}
+            <img src="{{ exercise.workout.featured_image }}" class="card-img-top" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ exercise }}</h5>
+                <p class="card-text">{{ exercise.workout }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Sets: {{ exercise.sets }}</li>
+                <li class="list-group-item">Reps: {{ exercise.reps }}</li>
+                <li class="list-group-item">Weight: {{ exercise.weight }}</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
